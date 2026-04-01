@@ -97,6 +97,8 @@ class UsersTest extends BaseTest {
                 .get("/users/" + id)
             .then()
                 .statusCode(200)
+                // JSONPlaceholder é uma API mock com dados imutáveis e fixos —
+                // validar valores exatos aqui é intencional e seguro neste contexto
                 .body("id",       equalTo(1))
                 .body("name",     equalTo("Leanne Graham"))
                 .body("username", equalTo("Bret"))
@@ -184,8 +186,10 @@ class UsersTest extends BaseTest {
             .post("/users")
         .then()
             .statusCode(201)
-            // JSONPlaceholder sempre retorna id=11 para simulação de criação
-            .body("id", equalTo(11));
+            // Verifica apenas que um ID foi gerado e é um inteiro positivo
+            // (evita acoplar o teste ao valor exato retornado pela API mock)
+            .body("id", notNullValue())
+            .body("id", greaterThan(0));
     }
 
     // -------------------------------------------------------------------------

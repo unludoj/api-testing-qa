@@ -1,4 +1,28 @@
+# Maven
 target/
+*.class
+*.jar
+*.war
+*.ear
+
+# IDE — IntelliJ
 .idea/
+*.iml
+*.iws
+*.ipr
+
+# IDE — Eclipse
+.classpath
+.project
+.settings/
+
+# IDE — VS Code
+.vscode/
+
+# Sistema
+.DS_Store
+Thumbs.db
+
+# Allure (resultados locais — o relatório final vai pro GitHub Pages)
 allure-results/
 allure-report/

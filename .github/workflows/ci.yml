@@ -33,7 +33,7 @@ jobs:
         if: always()
         uses: simple-elf/allure-report-action@master
         with:
-          allure_results: api-testing-qa/target/allure-results
+          allure_results: target/allure-results
           allure_history: allure-history
           keep_reports: 10
 
